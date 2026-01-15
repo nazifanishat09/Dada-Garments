@@ -15,8 +15,16 @@ class _LogInScreenState extends State<LogInScreen> {
   Widget build(BuildContext context) {
     return DefaultTabController(length: 2,
       child: Scaffold(appBar: CustomAppBar(),
+      backgroundColor: Colors.white,
       body: Column(
         children: [
+          Container(
+            height: 4,
+            width: double.infinity,
+            decoration: BoxDecoration(
+              color: Colors.grey[350],
+            ),
+          ),
         const TabBar(
         labelColor: Colors.black,
         unselectedLabelColor: Colors.grey,
@@ -31,7 +39,10 @@ class _LogInScreenState extends State<LogInScreen> {
       const Expanded(
         child: TabBarView(
           children: [
-            Center(child: Text("Sign In Page")),
+            Column(children: [
+
+
+            ],),
             Center(child: Text("Sign Up Page")),
           ],
         ),
