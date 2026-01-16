@@ -1,4 +1,4 @@
-import 'package:dada_garments/view/auth_ui/signInPage.dart';
+import 'package:dada_garments/view/auth_ui/signInScreen.dart';
 import 'package:dada_garments/view/widget/custom_text_widget.dart';
 import 'package:dada_garments/view/widget/text_form_field.dart';
 import 'package:flutter/material.dart';
@@ -55,83 +55,11 @@ class _LogInScreenState extends State<LogInScreen> {
               Expanded(
                 child: TabBarView(
                   children: [
-                    Padding(
-                      padding: const EdgeInsets.only(left: 10, right: 10),
-                      child: SingleChildScrollView(
-                        keyboardDismissBehavior:
-                            ScrollViewKeyboardDismissBehavior.onDrag,
+                    SignInScreen(phoneC: phoneC, passC: passC),
+                    Column(
+                      children: [
 
-                        child: SignInPage(phoneC: phoneC, passC: passC),
-                      ),
-                    ),
-                    Padding(
-                      padding: const EdgeInsets.only(left: 10, right: 10),
-                      child: Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          const Padding(
-                            padding: EdgeInsets.only(top: 40),
-                            child: TextWidget(
-                              title: "Let’s Get Started!",
-                              fs: 25,
-                              fc: Color(0xff5F5F5F),
-                              fw: FontWeight.bold,
-                            ),
-                          ),
-                          TextWidget(
-                            title: "Create an account.",
-                            fc: Color(0xff5F5F5F),
-                            fs: 15,
-                          ),
-                          SizedBox(height: 40),
-                          TextWidget(title: "Name"),
-                          TextFormFieldWidget(
-                            phoneC: phoneC,
-                            validator: (v) {
-                              if (v == null || v.isEmpty) {
-                                return "Please Enter Your Name";
-                              } else {
-                                return null;
-                              }
-                            },
-                            title: "Your Phone Number",
-                          ),
-                          SizedBox(height: 25),
-                          TextWidget(title: "Phone Number"),
-                          TextFormFieldWidget(
-                            phoneC: phoneC,
-                            validator: (v) {
-                              if (v == null || v.isEmpty) {
-                                return "Please Enter Your Phone Number";
-                              } else {
-                                return null;
-                              }
-                            },
-                            title: "Your Phone Number",
-                          ),
-                          SizedBox(height: 25),
-                          TextWidget(title: "Password"),
-                          TextFormFieldWidget(
-                            supIcon: InkWell(
-                              onTap: () {},
-                              child: Icon(
-                                Icons.visibility_off,
-                                color: Colors.grey,
-                              ), //:Icon(Icons.visibility,color: Colors.grey,),
-                            ),
-                            isActive: true,
-                            phoneC: passC,
-                            validator: (v) {
-                              if (v == null || v.isEmpty) {
-                                return "Please Enter Your Password";
-                              } else {
-                                return null;
-                              }
-                            },
-                            title: "Your Password",
-                          ),
-                        ],
-                      ),
+                      ],
                     ),
                   ],
                 ),
@@ -143,5 +71,4 @@ class _LogInScreenState extends State<LogInScreen> {
     );
   }
 }
-
 
