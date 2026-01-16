@@ -4,8 +4,12 @@ import 'custom_text_widget.dart';
 
 class ButtonWidget extends StatelessWidget {
   const ButtonWidget({
-    super.key,
+    super.key, this.bc, required this.bText, this.bImage, this.borderC,
   });
+  final Color? bc;
+  final Color? borderC;
+  final String bText;
+  final Widget? bImage;
 
   @override
   Widget build(BuildContext context) {
@@ -13,16 +17,22 @@ class ButtonWidget extends StatelessWidget {
       height: 55,
       width: 400,
       decoration: BoxDecoration(
-        color: Color(0xffF4A758),
+        color: bc ?? Color(0xffF4A758),
         borderRadius: BorderRadius.circular(10),
-        border: Border.all(color: Color(0xffF07F0F)),
+        border: Border.all(color:borderC ?? Color(0xffF07F0F)),
       ),
-      child: Center(
-        child: TextWidget(
-          title: "Log In",
-          fs: 20,
-          fw: FontWeight.bold,
-        ),
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.center,
+        spacing: 5,
+        children: [
+          bImage ??SizedBox(),
+
+          TextWidget(
+            title: "$bText",
+            fs: 15,
+            fw: FontWeight.bold,
+          ),
+        ],
       ),
     );
   }
