@@ -1,6 +1,8 @@
 import 'dart:developer';
 
+import 'package:dada_garments/get_x/counter/controller.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 
 import '../widget/button_widget.dart';
 import '../widget/custom_text_widget.dart';
@@ -17,19 +19,21 @@ class SignInScreen extends StatefulWidget {
 }
 
 class _SignInScreenState extends State<SignInScreen> {
-  final _formKey = GlobalKey<FormState>();
 
-  bool isActive = true;
+
+
+
 
   @override
   Widget build(BuildContext context) {
+    LogInController controller = Get.put(LogInController());
     return Padding(
       padding: const EdgeInsets.only(left: 10, right: 10, bottom: 30),
       child: SingleChildScrollView(
         keyboardDismissBehavior: ScrollViewKeyboardDismissBehavior.onDrag,
 
         child: Form(
-          key: _formKey,
+          key: controller.formKey,
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             spacing: 10,
@@ -63,25 +67,23 @@ class _SignInScreenState extends State<SignInScreen> {
               ),
               SizedBox(height: 10),
               TextWidget(title: "Password"),
-              TextFormFieldWidget(isActive: isActive,
-                supIcon: InkWell(
-                  onTap: () {isActive = !isActive; setState(() {
-
-                  });},
-                  child: Icon( isActive == true ?
-                    Icons.visibility_off :  Icons.visibility,color: Colors.grey,),
-                ),
+             Obx(()=> TextFormFieldWidget(isActive: controller.isActive.value,
+               supIcon: InkWell(
+                 onTap: () {controller.isActive.value = !controller.isActive.value; },
+                 child: Icon(controller.isActive.value == true ?
+                 Icons.visibility_off :  Icons.visibility,color: Colors.grey,),
+               ),
                // isActive: isActive,
-                phoneC: widget.passC,
-                validator: (v) {
-                  if (v == null || v.isEmpty) {
-                    return "Please Enter Your Password";
-                  } else {
-                    return null;
-                  }
-                },
-                title: "Your Password", keyboard: TextInputType.visiblePassword,
-              ),
+               phoneC: widget.passC,
+               validator: (v) {
+                 if (v == null || v.isEmpty) {
+                   return "Please Enter Your Password";
+                 } else {
+                   return null;
+                 }
+               },
+               title: "Your Password", keyboard: TextInputType.visiblePassword,
+             )),
               Align(
                 alignment: Alignment.centerRight,
 
@@ -92,7 +94,7 @@ class _SignInScreenState extends State<SignInScreen> {
               ButtonWidget(
                 bText: 'Log In',
                 ontep: () {
-                  if (_formKey.currentState!.validate()) {}
+                 // if (controller.formKey.currentState!.validate()) {}
                 },
               ),
 

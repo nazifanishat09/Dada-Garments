@@ -28,7 +28,7 @@ class TextFormFieldWidget extends StatelessWidget {
 
       cursorColor: Colors.orange,
       keyboardType: keyboard,
-      obscureText: isActive ?? true,
+      obscureText: isActive ?? true ,
       decoration: InputDecoration(
         suffixIcon: supIcon,
         hintText: "Enter $title ",
