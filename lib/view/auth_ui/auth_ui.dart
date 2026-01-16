@@ -24,35 +24,27 @@ class _LogInScreenState extends State<LogInScreen> {
   Widget build(BuildContext context) {
     return DefaultTabController(
       length: 2,
-      child: GestureDetector(
-        onTap: () {
-          FocusScopeNode nishat = FocusScope.of(context);
-          if (!nishat.hasPrimaryFocus) {
-            nishat.unfocus();
-          }
-        },
-        child: Scaffold(
-          appBar: CustomAppBar(),
-          backgroundColor: Colors.white,
-          body: Column(
-            children: [
-              Container(
-                height: 4,
-                width: double.infinity,
-                decoration: BoxDecoration(color: Colors.grey[350]),
-              ),
+      child: Scaffold(
+        appBar: CustomAppBar(),
+        backgroundColor: Colors.white,
+        body: Column(
+          children: [
+            Container(
+              height: 4,
+              width: double.infinity,
+              decoration: BoxDecoration(color: Colors.grey[350]),
+            ),
 
-              TabBarWidget(),
-              Expanded(
-                child: TabBarView(
-                  children: [
-                    SignInScreen(phoneC: phoneC, passC: passC),
-                    SignUpScreen(phoneC: phoneC, passC: passC),
-                  ],
-                ),
+            TabBarWidget(),
+            Expanded(
+              child: TabBarView(
+                children: [
+                  SignInScreen(phoneC: phoneC, passC: passC),
+                  SignUpScreen(phoneC: phoneC, passC: passC),
+                ],
               ),
-            ],
-          ),
+            ),
+          ],
         ),
       ),
     );

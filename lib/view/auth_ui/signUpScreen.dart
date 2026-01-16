@@ -26,7 +26,7 @@ class SignUpScreen extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             TextWidget(
-              title: "Let’s Get Started!",
+              title: "Let's Get Started!",
               fs: 25,
               fc: Color(0xff5F5F5F),
               fw: FontWeight.bold,
@@ -48,10 +48,10 @@ class SignUpScreen extends StatelessWidget {
                   return null;
                 }
               },
-              title: "Your Phone Number",
+              title: "Your Name", keyboard: TextInputType.text,
             ),
             SizedBox(height: 20),
-            TextWidget(title: "Name"),
+            TextWidget(title: "Phone Number"),
             TextFormFieldWidget(
               phoneC: phoneC,
               validator: (v) {
@@ -61,7 +61,7 @@ class SignUpScreen extends StatelessWidget {
                   return null;
                 }
               },
-              title: "Your Phone Number",
+              title: "Your Phone Number", keyboard: TextInputType.number,
             ),
             SizedBox(height:20),
             TextWidget(title: "Password"),
@@ -82,7 +82,7 @@ class SignUpScreen extends StatelessWidget {
                   return null;
                 }
               },
-              title: "Your Password",
+              title: "Your Password", keyboard: TextInputType.visiblePassword,
             ),
 
             SizedBox(height: 30),

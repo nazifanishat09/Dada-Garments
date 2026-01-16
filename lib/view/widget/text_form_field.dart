@@ -8,7 +8,7 @@ class TextFormFieldWidget extends StatelessWidget {
     required this.title,
     this.isActive,
     this.onTep,
-    this.supIcon,
+    this.supIcon, required this.keyboard,
   });
 
   final TextEditingController phoneC;
@@ -17,8 +17,9 @@ class TextFormFieldWidget extends StatelessWidget {
   final bool? isActive;
   final VoidCallback? onTep;
   final InkWell? supIcon;
+  final TextInputType keyboard;
 
-  //bool isActive = true;
+
   @override
   Widget build(BuildContext context) {
     return TextFormField(
@@ -26,8 +27,8 @@ class TextFormFieldWidget extends StatelessWidget {
       validator: validator,
 
       cursorColor: Colors.orange,
-      keyboardType: TextInputType.number,
-      obscureText: isActive ?? false,
+      keyboardType: keyboard,
+      obscureText: isActive ?? true,
       decoration: InputDecoration(
         suffixIcon: supIcon,
         hintText: "Enter $title ",
@@ -35,7 +36,7 @@ class TextFormFieldWidget extends StatelessWidget {
           borderSide: BorderSide(color: Colors.orange),
           borderRadius: BorderRadius.all(Radius.circular(10)),
         ),
-        enabledBorder: OutlineInputBorder(
+        border: OutlineInputBorder(
           borderRadius: BorderRadius.all(Radius.circular(10)),
           borderSide: BorderSide(color: Colors.grey),
         ),
