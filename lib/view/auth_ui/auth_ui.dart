@@ -1,5 +1,6 @@
 import 'package:dada_garments/view/auth_ui/signInScreen.dart';
 import 'package:dada_garments/view/auth_ui/signUpScreen.dart';
+import 'package:dada_garments/view/auth_ui/tabbar.dart';
 import 'package:dada_garments/view/widget/custom_text_widget.dart';
 import 'package:dada_garments/view/widget/text_form_field.dart';
 import 'package:flutter/material.dart';
@@ -41,18 +42,7 @@ class _LogInScreenState extends State<LogInScreen> {
                 decoration: BoxDecoration(color: Colors.grey[350]),
               ),
 
-              const TabBar(
-                labelColor: Colors.black,
-                unselectedLabelColor: Colors.grey,
-                indicatorColor: Colors.orange, // underline color
-                indicatorWeight: 3, // underline thickness
-                indicatorSize:
-                    TabBarIndicatorSize.tab, // text onujayi underline
-                tabs: [
-                  Tab(text: "Sign In"),
-                  Tab(text: "Sign Up"),
-                ],
-              ),
+              TabBarWidget(),
               Expanded(
                 child: TabBarView(
                   children: [
@@ -68,6 +58,8 @@ class _LogInScreenState extends State<LogInScreen> {
     );
   }
 }
+
+
 
 
 
