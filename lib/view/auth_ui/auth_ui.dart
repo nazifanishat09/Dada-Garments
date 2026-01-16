@@ -1,4 +1,5 @@
 import 'package:dada_garments/view/auth_ui/signInScreen.dart';
+import 'package:dada_garments/view/auth_ui/signUpScreen.dart';
 import 'package:dada_garments/view/widget/custom_text_widget.dart';
 import 'package:dada_garments/view/widget/text_form_field.dart';
 import 'package:flutter/material.dart';
@@ -56,11 +57,7 @@ class _LogInScreenState extends State<LogInScreen> {
                 child: TabBarView(
                   children: [
                     SignInScreen(phoneC: phoneC, passC: passC),
-                    Column(
-                      children: [
-
-                      ],
-                    ),
+                    SignUpScreen(phoneC: phoneC, passC: passC),
                   ],
                 ),
               ),
@@ -71,4 +68,6 @@ class _LogInScreenState extends State<LogInScreen> {
     );
   }
 }
+
+
 
