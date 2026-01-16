@@ -30,7 +30,7 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
-  material_tab_indicator: ^1.0.2
+  # material_tab_indicator: ^1.0.2
 
 
 
