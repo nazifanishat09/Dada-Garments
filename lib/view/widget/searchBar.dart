@@ -3,10 +3,10 @@ import 'package:flutter/material.dart';
 
 
 class SearchBar extends StatelessWidget {
-  const SearchBar({
+  SearchBar({
     super.key,
   });
-
+final TextEditingController searchC = TextEditingController();
   @override
   Widget build(BuildContext context) {
     return Row(mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -15,6 +15,7 @@ class SearchBar extends StatelessWidget {
           width: 300,
 
           child: TextField(
+            controller: searchC,
             cursorColor: Colors.orange,
             keyboardType: TextInputType.text,
             decoration: InputDecoration(
