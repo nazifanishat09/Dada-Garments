@@ -51,8 +51,12 @@ class _HomeScreenState extends State<HomeScreen> {
                       height: 109,
                       width: 90,
                       decoration: BoxDecoration(
-                      image:DecorationImage(fit:BoxFit.fill ,
-                          image: NetworkImage("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRZkVG9WVjMC_8Q5ZeDRnZEn__8hncpEwShxg&s")),
+                        image: DecorationImage(
+                          fit: BoxFit.fill,
+                          image: NetworkImage(
+                            "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRZkVG9WVjMC_8Q5ZeDRnZEn__8hncpEwShxg&s",
+                          ),
+                        ),
                         borderRadius: BorderRadius.circular(10),
                       ),
                     ),
@@ -72,9 +76,29 @@ class _HomeScreenState extends State<HomeScreen> {
                         ),
                       ),
                     ),
+
+
                   ],
                 ),
               ),
+            ),
+            //best selling
+            SizedBox(height: 30),
+            Row(mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                TextWidget(
+                  title: "Best Selling",
+                  fw: FontWeight.w900,
+                  fc: Color(0xff56504E),
+                  fs: 20,
+                ),
+                TextWidget(
+                  title: "See All",
+                  fw: FontWeight.w600,
+                  fc: Colors.orange,
+                  fs: 14,
+                ),
+              ],
             ),
           ],
         ),
