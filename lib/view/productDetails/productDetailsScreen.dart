@@ -3,6 +3,7 @@ import 'package:dada_garments/get_x/productDetailsScreen/productDetailsScreen.da
 import 'package:dada_garments/view/widget/custom_text_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import '../product/productDetailsSlider.dart';
 import '../widget/custom_appbar.dart';
 
 class ProductDetailsScreen extends StatefulWidget {
@@ -28,29 +29,7 @@ class _ProductDetailsScreenState extends State<ProductDetailsScreen> {
           crossAxisAlignment: CrossAxisAlignment.start,
           spacing: 5,
           children: [
-            CarouselSlider(
-              options: CarouselOptions(
-                height: 180.0,
-                viewportFraction: .9,
-                autoPlay: true,
-              ),
-              items: siderL.map((i) {
-                return Builder(
-                  builder: (BuildContext context) {
-                    return Container(
-                      width: MediaQuery.of(context).size.width,
-                      margin: EdgeInsets.symmetric(horizontal: 5.0),
-                      decoration: BoxDecoration(
-                        image: DecorationImage(
-                          fit: BoxFit.fill,
-                          image: NetworkImage("${i}"),
-                        ),
-                      ),
-                    );
-                  },
-                );
-              }).toList(),
-            ),
+            PDetailsSlider(siderL: siderL),
             SizedBox(height: 15),
 
             TextWidget(
@@ -134,3 +113,5 @@ class _ProductDetailsScreenState extends State<ProductDetailsScreen> {
     );
   }
 }
+
+
