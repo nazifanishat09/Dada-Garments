@@ -1,9 +1,9 @@
 import 'dart:developer';
 
-import 'package:dada_garments/get_x/counter/controller.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
+import '../../get_x/signIn_signUp/controller.dart';
 import '../widget/button_widget.dart';
 import '../widget/custom_text_widget.dart';
 import '../widget/text_form_field.dart';
@@ -94,7 +94,7 @@ class _SignInScreenState extends State<SignInScreen> {
               ButtonWidget(
                 bText: 'Log In',
                 ontep: () {
-                 // if (controller.formKey.currentState!.validate()) {}
+                  //if (controller.formKey.currentState!.validate.()) {}
                 },
               ),
 

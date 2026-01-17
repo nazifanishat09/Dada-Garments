@@ -91,7 +91,7 @@ class SignUpScreen extends StatelessWidget {
             Center(child: TextWidget(title: "or", fs: 20)),
             SizedBox(height: 20),
             ButtonWidget(
-              bText: "Sign in with google",
+              bText: "Sign up with google",
               bc: Color(0xffFDF2E7),borderC: Colors.grey,
               bImage: Image(
                 image: AssetImage(
@@ -101,7 +101,7 @@ class SignUpScreen extends StatelessWidget {
             ),
             SizedBox(height:10),
             ButtonWidget(
-              bText: "Sign in with facebook",
+              bText: "Sign up with facebook",
               bc: Color(0xffFDF2E7),borderC: Colors.grey,
               bImage: Image(
                 image: AssetImage(
