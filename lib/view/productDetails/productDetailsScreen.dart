@@ -3,7 +3,7 @@ import 'package:dada_garments/get_x/productDetailsScreen/productDetailsScreen.da
 import 'package:dada_garments/view/widget/custom_text_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import '../product/productDetailsSlider.dart';
+import '../widget/productDetailsSlider.dart';
 import '../widget/custom_appbar.dart';
 
 class ProductDetailsScreen extends StatefulWidget {

@@ -1,4 +1,5 @@
 import 'package:dada_garments/view/auth_ui/auth_ui.dart';
+import 'package:dada_garments/view/homeUi/homeUi.dart';
 import 'package:dada_garments/view/product/product.dart';
 import 'package:dada_garments/view/productDetails/productDetailsScreen.dart';
 import 'package:dada_garments/view/splashScreen/splashScreen.dart';
@@ -15,6 +16,6 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(debugShowCheckedModeBanner: false,
-        home:ProductDetailsScreen());
+        home:HomeScreen());
   }
 }
