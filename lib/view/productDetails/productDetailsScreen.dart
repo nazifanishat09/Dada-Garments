@@ -1,7 +1,8 @@
 import 'package:carousel_slider/carousel_slider.dart';
+import 'package:dada_garments/get_x/productDetailsScreen/productDetailsScreen.dart';
 import 'package:dada_garments/view/widget/custom_text_widget.dart';
 import 'package:flutter/material.dart';
-
+import 'package:get/get.dart';
 import '../widget/custom_appbar.dart';
 
 class ProductDetailsScreen extends StatefulWidget {
@@ -24,6 +25,8 @@ class _ProductDetailsScreenState extends State<ProductDetailsScreen> {
       body: Padding(
         padding: const EdgeInsets.all(10),
         child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          spacing: 5,
           children: [
             CarouselSlider(
               options: CarouselOptions(
@@ -48,19 +51,83 @@ class _ProductDetailsScreenState extends State<ProductDetailsScreen> {
                 );
               }).toList(),
             ),
+            SizedBox(height: 15),
+
+            TextWidget(
+              title: "Party Borkha Abaya Black",
+              fs: 28,
+              fw: FontWeight.w900,
+            ),
             SizedBox(height: 10),
-            Row(mainAxisAlignment: MainAxisAlignment.start,
+            TextWidget(title: "SKU : AP-SPT-MESH",  fs:15, fw: FontWeight.w800),
+            TextWidget(
+              title: "Brand : Active GEAR",
+              fs:15,
+              fw: FontWeight.w800,
+            ),
+            TextWidget(
+              title: "Category : Head CAP",
+              fs:15,
+              fw: FontWeight.w800,
+            ),
+            TextWidget(title: "Stock : 500 pcs", fs:15, fw: FontWeight.w800),
+            Row(
               children: [
-                TextWidget(
-                  title: "Party Borkha Abaya Black",
-                  fs: 24,
-                  fw: FontWeight.w900,
+                Icon(
+                  Icons.star,
+                  color: Colors.orange,
+
+                  fontWeight: FontWeight.w900,
                 ),
-                CircleAvatar(
-                  radius: 25,
-                )
+                Icon(
+                  Icons.star,
+                  color: Colors.orange,
+
+                  fontWeight: FontWeight.w900,
+                ),
+                Icon(
+                  Icons.star,
+                  color: Colors.orange,
+
+                  fontWeight: FontWeight.w900,
+                ),
+                Icon(
+                  Icons.star,
+                  color: Colors.orange,
+
+                  fontWeight: FontWeight.w900,
+                ),
+                Icon(
+                  Icons.star,
+                  color: Colors.orange,
+
+                  fontWeight: FontWeight.w900,
+                ),SizedBox(width: 10,),
+                TextWidget(
+                  title: "(102 Review)",
+                  fs: 20,
+                  fw: FontWeight.w800,
+                ),
               ],
             ),
+
+
+            Row(
+              spacing: 10,
+              children: [
+                TextWidget(title: "Price :",  fs:15, fw: FontWeight.w800),
+                TextWidget(title: "2880", fs:15, fw: FontWeight.w800),
+
+                TextWidget(
+                  title: "3200",
+                  fs: 13,
+                  tD: TextDecoration.lineThrough,
+                  fc: Colors.grey,
+                ),
+              ],
+            ),
+            TextWidget(title: "Details",  fs:15, fw: FontWeight.w800),
+            TextWidget(title: "Details",  fs:15, fw: FontWeight.w800),
           ],
         ),
       ),
