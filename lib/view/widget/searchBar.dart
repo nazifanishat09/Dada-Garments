@@ -2,23 +2,23 @@ import 'package:flutter/material.dart';
 
 
 
-class SearchBar extends StatelessWidget {
-  SearchBar({
+class CustomSearchBarWidget extends StatelessWidget {
+  const CustomSearchBarWidget({
     super.key,
   });
-final TextEditingController searchC = TextEditingController();
+
   @override
   Widget build(BuildContext context) {
-    return Row(mainAxisAlignment: MainAxisAlignment.spaceBetween,
+    return Row(
+      spacing: 5,
       children: [
-        SizedBox(
-          width: 300,
-
+        Expanded(
+          flex: 10,
           child: TextField(
-            controller: searchC,
+            //controller: searchC,
             cursorColor: Colors.orange,
             keyboardType: TextInputType.text,
-            decoration: InputDecoration(
+            decoration: InputDecoration(contentPadding: EdgeInsets.zero,
                 filled: true,
                 fillColor: Color(0xffEDEBE6),
                 prefixIcon: Icon(
@@ -36,19 +36,21 @@ final TextEditingController searchC = TextEditingController();
                   borderRadius: BorderRadius.circular(10),
                   borderSide: BorderSide.none,
                 ),
-                enabledBorder: OutlineInputBorder(
+                border: OutlineInputBorder(
                   borderSide: BorderSide.none,
                   borderRadius: BorderRadius.circular(10),
                 )
             ),
           ),
         ),
-        Container(
-          height: 55,
-          width: 55,
-          decoration: BoxDecoration(
-            color: Colors.orange,borderRadius: BorderRadius.circular(10),
-          ),child: Icon(Icons.tune,fontWeight: FontWeight.w600,color: Color(0xff3B3939),),
+        Expanded(flex: 2,
+          child: Container(
+            height: 48,
+            width: MediaQuery.sizeOf(context).width,
+            decoration: BoxDecoration(
+              color: Colors.orange,borderRadius: BorderRadius.circular(10),
+            ),child: Icon(Icons.tune,fontWeight: FontWeight.w600,color: Color(0xff3B3939),),
+          ),
         )
       ],
     );
