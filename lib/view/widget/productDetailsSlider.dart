@@ -3,10 +3,11 @@ import 'package:flutter/material.dart';
 class PDetailsSlider extends StatelessWidget {
   const PDetailsSlider({
     super.key,
-    required this.siderL,
+    required this.siderL,  this.sD,
   });
 
   final List<String> siderL;
+  final BorderRadius? sD;
 
   @override
   Widget build(BuildContext context) {
@@ -23,7 +24,9 @@ class PDetailsSlider extends StatelessWidget {
               width: MediaQuery.of(context).size.width,
               margin: EdgeInsets.symmetric(horizontal: 5.0,),
               decoration: BoxDecoration(
-                image: DecorationImage(
+                borderRadius: sD ,
+               image: DecorationImage(
+                  
                   fit: BoxFit.fill,
                   image: NetworkImage("${i}"),
                 ),
