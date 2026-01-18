@@ -4,6 +4,8 @@ import 'package:dada_garments/view/widget/productDetailsSlider.dart';
 import 'package:dada_garments/view/widget/searchBar.dart';
 import 'package:flutter/material.dart';
 
+import '../widget/productCardWidget.dart';
+
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
 
@@ -19,6 +21,24 @@ class _HomeScreenState extends State<HomeScreen> {
 
     "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTsTgIxqyHUGcntqSWZQ-dsOwuEwuXKPs-j6g&s",
   ];
+  List<Map<String, dynamic>> p = [
+    {
+      "id": 1,
+      "title": "Men's Classic Cotton Head Cap",
+      "stock": 75,
+      "sku": "CAP-COT-BLK",
+      "brand": "UrbanStyle",
+      "price": 650,
+      "old_price": 850,
+      "image": "products/PgrKShWTkVMoWefUTr0YxLWiyRRrAXbl3joQrLXe.webp",
+      "rating": 4.4,
+      "review_count": 89,
+      "category": "Head Cap",
+    }
+  ];
+
+
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -82,7 +102,7 @@ class _HomeScreenState extends State<HomeScreen> {
                 ),
               ),
             ),
-            //best selling
+            //best selling 😊😊😊😊😊😊😊😊😊
             SizedBox(height: 30),
             Row(mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
@@ -99,6 +119,17 @@ class _HomeScreenState extends State<HomeScreen> {
                   fs: 14,
                 ),
               ],
+
+            ),
+            SizedBox(
+              height: 210,
+              width: MediaQuery.sizeOf(context).width,
+              child: ListView.builder(
+                itemCount: 10,
+                scrollDirection: Axis.horizontal,
+                shrinkWrap: true,
+                itemBuilder: (c, i) => ProductCardWidget(),
+              ),
             ),
           ],
         ),
