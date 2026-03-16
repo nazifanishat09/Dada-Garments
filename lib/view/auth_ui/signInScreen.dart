@@ -55,7 +55,7 @@ class _SignInScreenState extends State<SignInScreen> {
               SizedBox(height: 20),
               TextWidget(title: "Phone Number"),
               TextFormFieldWidget(
-                phoneC: widget.phoneC,
+                controller: widget.phoneC,
                 validator: (v) {
                   if (v == null || v.isEmpty) {
                     return "Please Enter Your Phone Number";
@@ -74,7 +74,7 @@ class _SignInScreenState extends State<SignInScreen> {
                  Icons.visibility_off :  Icons.visibility,color: Colors.grey,),
                ),
                // isActive: isActive,
-               phoneC: widget.passC,
+               controller: widget.passC,
                validator: (v) {
                  if (v == null || v.isEmpty) {
                    return "Please Enter Your Password";

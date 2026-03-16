@@ -1,17 +1,17 @@
 import 'package:flutter/material.dart';
 
-class TextFormFieldWidget extends StatelessWidget {
+class TextFormFieldWidget extends StatefulWidget {
   const TextFormFieldWidget({
     super.key,
-    required this.phoneC,
+
+
     this.validator,
     required this.title,
     this.isActive,
     this.onTep,
-    this.supIcon, required this.keyboard,
+    this.supIcon, required this.keyboard, required this.controller,
   });
-
-  final TextEditingController phoneC;
+  final TextEditingController controller;
   final FormFieldValidator? validator;
   final String title;
   final bool? isActive;
@@ -19,19 +19,23 @@ class TextFormFieldWidget extends StatelessWidget {
   final InkWell? supIcon;
   final TextInputType keyboard;
 
+  @override
+  State<TextFormFieldWidget> createState() => _TextFormFieldWidgetState();
+}
 
+class _TextFormFieldWidgetState extends State<TextFormFieldWidget> {
   @override
   Widget build(BuildContext context) {
     return TextFormField(
-      controller: phoneC,
-      validator: validator,
+      controller: widget.controller,
+      validator: widget.validator,
 
       cursorColor: Colors.orange,
-      keyboardType: keyboard,
-      obscureText: isActive ?? true ,
+      keyboardType: widget.keyboard,
+      obscureText: widget.isActive ?? true ,
       decoration: InputDecoration(
-        suffixIcon: supIcon,
-        hintText: "Enter $title ",
+        suffixIcon: widget.supIcon,
+        hintText: "Enter ${widget.title} ",
         focusedBorder: OutlineInputBorder(
           borderSide: BorderSide(color: Colors.orange),
           borderRadius: BorderRadius.all(Radius.circular(10)),

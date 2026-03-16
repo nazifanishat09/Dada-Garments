@@ -17,7 +17,7 @@ class LogInScreen extends StatefulWidget {
 
 class _LogInScreenState extends State<LogInScreen> {
   final TextEditingController phoneC = TextEditingController();
-
+  final TextEditingController nameC = TextEditingController();
   final TextEditingController passC = TextEditingController();
 
   @override
@@ -40,7 +40,7 @@ class _LogInScreenState extends State<LogInScreen> {
               child: TabBarView(
                 children: [
                   SignInScreen(phoneC: phoneC, passC: passC),
-                  SignUpScreen(phoneC: phoneC, passC: passC),
+                  SignUpScreen(phoneC: phoneC, passC: passC, nameC: nameC,),
                 ],
               ),
             ),
