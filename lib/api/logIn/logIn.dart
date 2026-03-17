@@ -1,4 +1,7 @@
+import 'dart:convert';
+
 import 'package:flutter_easyloading/flutter_easyloading.dart';
+import 'package:flutter_secure_storage/flutter_secure_storage.dart';
 import 'package:http/http.dart' as http;
 import 'dart:developer';
 
@@ -15,6 +18,9 @@ class LogInController {
 
       if (res.statusCode == 200) {
         EasyLoading.showSuccess("Log in Success");
+        var data = jsonDecode(res.body)["token"];
+         FlutterSecureStorage storage = FlutterSecureStorage();
+         storage.write(key: "token", value: data);
       } else if (res.statusCode == 422) {
         EasyLoading.showError("Login info is wrong");
       } else {

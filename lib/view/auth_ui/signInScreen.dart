@@ -2,10 +2,10 @@ import 'dart:developer';
 
 import 'package:dada_garments/view/widget/loadingButton.dart';
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
+
 
 import '../../api/logIn/logIn.dart';
-import '../../get_x/signIn_signUp/controller.dart';
+
 import '../widget/button_widget.dart';
 import '../widget/custom_text_widget.dart';
 import '../widget/text_form_field.dart';
@@ -27,7 +27,7 @@ class _SignInScreenState extends State<SignInScreen> {
 
   @override
   Widget build(BuildContext context) {
-    LogInController controller = Get.put(LogInController());
+    //LogInController controller = Get.put(LogInController());
     return Padding(
       padding: const EdgeInsets.only(left: 10, right: 10, bottom: 30),
       child: SingleChildScrollView(

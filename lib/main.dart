@@ -6,7 +6,6 @@ import 'package:dada_garments/view/productDetails/productDetailsScreen.dart';
 import 'package:dada_garments/view/splashScreen/splashScreen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_easyloading/flutter_easyloading.dart';
-import 'package:get/get.dart';
 
 void main() {
   runApp(const MyApp());
@@ -42,7 +41,7 @@ class MyApp extends StatelessWidget {
           selectionHandleColor: Colors.orange,
         ),
       ),
-      home: LogInScreen(),
+      home: SplashScreen(),
     );
   }
 }
