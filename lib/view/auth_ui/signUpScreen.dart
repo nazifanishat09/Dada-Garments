@@ -27,6 +27,7 @@ class SignUpScreen extends StatefulWidget {
 class _SignUpScreenState extends State<SignUpScreen> {
   final _formKey = GlobalKey<FormState>();
   bool _isObscure = true;
+  bool isLoading = false;
   @override
   Widget build(BuildContext context) {
     return Padding(
@@ -110,17 +111,24 @@ class _SignUpScreenState extends State<SignUpScreen> {
 
               SizedBox(height: 30),
               InkWell(
-                onTap: () {
-                  // if (_formKey.currentState!.validate()) {}
+                onTap: () async {
+                  if (_formKey.currentState!.validate()) {}
                   var a = {
                     "name": widget.nameC.text,
                     "password": widget.passC.text,
                     "phone": widget.phoneC.text,
                   };
                   log("===${jsonEncode(a)}");
-                RegController().createAccountFun();
+                  isLoading = true;
+                  setState(() {});
+                  bool status = await RegController().createAccountFun(data: a);
+                  isLoading = false;
+                  setState(() {});
+                  if (status = true) {
+                    /// Navigate Screen
+                  }
                 },
-                child: ButtonWidget(bText: 'Register'),
+                 child: isLoading == true ? Center(child: CircularProgressIndicator(color: Colors.orange,)): ButtonWidget(bText: 'Register'),
               ),
               SizedBox(height: 20),
               Center(child: TextWidget(title: "or", fs: 20)),

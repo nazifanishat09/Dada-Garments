@@ -1,18 +1,27 @@
-
-import 'package:http/http.dart'as http;
-
-
+import 'package:flutter_easyloading/flutter_easyloading.dart';
+import 'package:http/http.dart' as http;
 import 'dart:developer';
 
 class LogInController {
-  Future<void> logInFun ()async{
-    try{
-      Uri uri =Uri.parse("uri");
+   static Future<void> logInFun({required String phone,required String pass,}) async {
+    try {
+      Uri uri = Uri.parse("https://b4.coderangon.com/api/login");
 
-    }catch(error){
+      var b = {"phone": phone, "password": pass};
+      var h = {"Accept": "application/json"};
+      var res = await http.post(uri, body: b, headers: h);
+
+      log("✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔$phone,🎶🎶🎶🎶🎶🎶🎶🎶🎶🎶🎶🎶🎶 $pass");
+
+      if (res.statusCode == 200) {
+        EasyLoading.showSuccess("Log in Success");
+      } else if (res.statusCode == 422) {
+        EasyLoading.showError("Login info is wrong");
+      } else {
+        EasyLoading.showError("Somthing Wrong");
+      }
+    } catch (error) {
       log("error----$error");
     }
   }
-
-
 }

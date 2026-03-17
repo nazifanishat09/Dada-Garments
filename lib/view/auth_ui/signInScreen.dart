@@ -1,8 +1,10 @@
 import 'dart:developer';
 
+import 'package:dada_garments/view/widget/loadingButton.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
+import '../../api/logIn/logIn.dart';
 import '../../get_x/signIn_signUp/controller.dart';
 import '../widget/button_widget.dart';
 import '../widget/custom_text_widget.dart';
@@ -19,10 +21,9 @@ class SignInScreen extends StatefulWidget {
 }
 
 class _SignInScreenState extends State<SignInScreen> {
-
-
-
-
+  final _formKey = GlobalKey<FormState>();
+  bool _isActive = true;
+  bool isLoading = false;
 
   @override
   Widget build(BuildContext context) {
@@ -33,7 +34,7 @@ class _SignInScreenState extends State<SignInScreen> {
         keyboardDismissBehavior: ScrollViewKeyboardDismissBehavior.onDrag,
 
         child: Form(
-          key: controller.formKey,
+          key: _formKey,
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             spacing: 10,
@@ -56,6 +57,7 @@ class _SignInScreenState extends State<SignInScreen> {
               TextWidget(title: "Phone Number"),
               TextFormFieldWidget(
                 controller: widget.phoneC,
+                isActive: false,
                 validator: (v) {
                   if (v == null || v.isEmpty) {
                     return "Please Enter Your Phone Number";
@@ -63,38 +65,60 @@ class _SignInScreenState extends State<SignInScreen> {
                     return null;
                   }
                 },
-                title: "Your Phone Number", keyboard: TextInputType.number,
+                title: "Your Phone Number",
+                keyboard: TextInputType.number,
               ),
               SizedBox(height: 10),
               TextWidget(title: "Password"),
-             Obx(()=> TextFormFieldWidget(isActive: controller.isActive.value,
-               supIcon: InkWell(
-                 onTap: () {controller.isActive.value = !controller.isActive.value; },
-                 child: Icon(controller.isActive.value == true ?
-                 Icons.visibility_off :  Icons.visibility,color: Colors.grey,),
-               ),
-               // isActive: isActive,
-               controller: widget.passC,
-               validator: (v) {
-                 if (v == null || v.isEmpty) {
-                   return "Please Enter Your Password";
-                 } else {
-                   return null;
-                 }
-               },
-               title: "Your Password", keyboard: TextInputType.visiblePassword,
-             )),
+              //Obx(()=> TextFormFieldWidget(isActive: controller.isActive.value,
+              TextFormFieldWidget(
+                isActive: _isActive,
+
+                supIcon: InkWell(
+                  onTap: () {
+                    setState(() {
+                      _isActive = !_isActive;
+                    });
+                    //_isActive = !_isActive;
+                  },
+                  child: Icon(
+                    _isActive == true ? Icons.visibility_off : Icons.visibility,
+                    color: Colors.grey,
+                  ),
+                ),
+
+                controller: widget.passC,
+                validator: (v) {
+                  if (v == null || v.isEmpty) {
+                    return "Please Enter Your Password";
+                  } else {
+                    return null;
+                  }
+                },
+                title: "Your Password",
+                keyboard: TextInputType.visiblePassword,
+              ),
               Align(
                 alignment: Alignment.centerRight,
 
                 child: TextWidget(title: "Forgot Password", fc: Colors.orange),
               ),
               SizedBox(height: 20),
+                isLoading == true ? Center(child: CustomLoadingButton()):
 
               ButtonWidget(
                 bText: 'Log In',
-                ontep: () {
-                  //if (controller.formKey.currentState!.validate.()) {}
+                ontep: () async {
+                  if (_formKey.currentState!.validate()) {
+                    isLoading = true;
+                    setState(() {});
+                    await LogInController.logInFun(
+                      phone: widget.phoneC.text,
+                      pass: widget.passC.text,
+                    );
+                    isLoading = false;
+                    setState(() {});
+                  }
                 },
               ),
 
