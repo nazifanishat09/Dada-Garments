@@ -1,7 +1,9 @@
+import 'dart:convert';
 import 'dart:developer';
 
 import 'package:flutter/material.dart';
 
+import '../../api/reg/reg.dart';
 import '../widget/button_widget.dart';
 import '../widget/custom_text_widget.dart';
 import '../widget/text_form_field.dart';
@@ -115,9 +117,10 @@ class _SignUpScreenState extends State<SignUpScreen> {
                     "password": widget.passC.text,
                     "phone": widget.phoneC.text,
                   };
-                  log("===$a");
+                  log("===${jsonEncode(a)}");
+                RegController().createAccountFun();
                 },
-                child: ButtonWidget(bText: ' Register'),
+                child: ButtonWidget(bText: 'Register'),
               ),
               SizedBox(height: 20),
               Center(child: TextWidget(title: "or", fs: 20)),
