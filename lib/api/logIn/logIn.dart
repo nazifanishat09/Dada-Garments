@@ -6,7 +6,10 @@ import 'package:http/http.dart' as http;
 import 'dart:developer';
 
 class LogInController {
-   static Future<void> logInFun({required String phone,required String pass,}) async {
+  static Future<void> logInFun({
+    required String phone,
+    required String pass,
+  }) async {
     try {
       Uri uri = Uri.parse("https://b4.coderangon.com/api/login");
 
@@ -17,10 +20,10 @@ class LogInController {
       log("✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔$phone,🎶🎶🎶🎶🎶🎶🎶🎶🎶🎶🎶🎶🎶 $pass");
 
       if (res.statusCode == 200) {
-        EasyLoading.showSuccess("Log in Success");
         var data = jsonDecode(res.body)["token"];
-         FlutterSecureStorage storage = FlutterSecureStorage();
-         storage.write(key: "token", value: data);
+        FlutterSecureStorage storage = FlutterSecureStorage();
+        storage.write(key: "token", value: data);
+        EasyLoading.showSuccess("Log in Success");
       } else if (res.statusCode == 422) {
         EasyLoading.showError("Login info is wrong");
       } else {

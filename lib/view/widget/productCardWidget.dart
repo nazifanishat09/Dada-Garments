@@ -1,14 +1,27 @@
 import 'package:flutter/material.dart';
 
+import '../../api/productScreen/productScreen.dart';
 import 'custom_text_widget.dart';
 
 
-class ProductCardWidget extends StatelessWidget {
+class ProductCardWidget extends StatefulWidget {
   const ProductCardWidget({
     super.key,
   });
 
   @override
+  State<ProductCardWidget> createState() => _ProductCardWidgetState();
+}
+
+class _ProductCardWidgetState extends State<ProductCardWidget> {
+  @override
+  fatchData()async{
+    await ProductScreenApi().getProduct();
+  }
+  @override
+  void initState() {
+    fatchData();
+  }
   Widget build(BuildContext context) {
     return Card(
       child: Padding(
